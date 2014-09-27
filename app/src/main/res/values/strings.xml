@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Ribbit</string>
+    <string name="title_section1">Inbox</string>
+    <string name="title_section2">Friends</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="title_activity_login">Sign In</string>
+    <string name="title_activity_edit_friends">Edit Friends</string>
+    <string name="title_activity_sign_up">Sign Up</string>
+    <string name="hint_username">Username</string>
+    <string name="hint_password">Password</string>
+    <string name="hint_email">E-mail</string>
+    <string name="text_signup">Not a user yet? Sign Up!</string>
+    <string name="text_button_login">Login</string>
+    <string name="text_button_signup">Sign Up</string>
+    <string name="error_title">Uh oh...</string>
+    <string name="error_message_signup">Please fill out all fields!</string>
+    <string name="error_message_login">Make sure your information is correct, and all fields are filled in!</string>
+    <string name="error_unexpected">There was an unexpected error!</string>
+    <string name="error_external_storage">There was a problem accessing your device\'s external storage.</string>
+    <string name="error_file">There was a problem with the selected file.</string>
+    <string name="error_file_size">The selected file is too large. Select a new file.</string>
+    <string name="warning_size_video">The selected video must be less than 10 MB</string>
+    <string name="empty_inbox">Sorry, there are no messages to display!</string>
+    <string name="empty_friends">Sorry, there are no friends to display!</string>
+    <string name="label_edit_friends">Edit Friends</string>
+    <string name="label_camera">Camera</string>
+
+    <string-array name="camera_choices">
+        <item name="picture_take">Take Picture</item>
+        <item name="picture_get">Get Picture</item>
+        <item name="video_take">Take Video</item>
+        <item name="video_get">Get Video</item>
+    </string-array>
+
+    <string name="title_activity_recipients">Choose Recipients</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="empty_recipients_list">Choose some friends first!</string>
+    <string name="action_send">Send</string>
+    <string name="success_message">Message sent!</string>
+    <string name="title_activity_view_image">Ribbit</string>
+
+</resources>
