@@ -295,11 +295,14 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
             case R.id.action_logout:
                 ParseUser.logOut();
                 navigateToLogin();
+                break;
             case R.id.action_add_friend:
                 Intent intent = new Intent(this, EditFriendsActivity.class);
                 startActivity(intent);
+                break;
             case R.id.action_camera:
                 CameraOptionsAlert();
+                break;
         }
 
         return super.onOptionsItemSelected(item);

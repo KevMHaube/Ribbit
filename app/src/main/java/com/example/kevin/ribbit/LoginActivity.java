@@ -29,13 +29,12 @@ public class LoginActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
         setContentView(R.layout.activity_login);
 
         ActionBar actionBar = getActionBar();
         actionBar.hide();
 
-        mSignUpTextView = (TextView) findViewById(R.id.signUpTextView);
+        mSignUpTextView = (TextView) findViewById(R.id.signUpText);
         mSignUpTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,6 +46,7 @@ public class LoginActivity extends Activity {
         mUsername = (EditText)findViewById(R.id.usernameField);
         mPassword = (EditText)findViewById(R.id.passwordField);
         mLoginButton = (Button)findViewById(R.id.loginButton);
+        mProgressBar = (ProgressBar)findViewById(R.id.progressBar);
 
         mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,11 +67,11 @@ public class LoginActivity extends Activity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 } else {
-                    setProgressBarIndeterminateVisibility(true);
+                    mProgressBar.setVisibility(View.VISIBLE);
                     ParseUser.logInInBackground(username, password, new LogInCallback() {
                         @Override
                         public void done(ParseUser user, ParseException e) {
-                            setProgressBarIndeterminateVisibility(false);
+                            mProgressBar.setVisibility(View.INVISIBLE);
                             if (e == null) {
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);

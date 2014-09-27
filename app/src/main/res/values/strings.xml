@@ -12,9 +12,9 @@
     <string name="hint_username">Username</string>
     <string name="hint_password">Password</string>
     <string name="hint_email">E-mail</string>
-    <string name="text_signup">Not a user yet? Sign Up!</string>
-    <string name="text_button_login">Login</string>
-    <string name="text_button_signup">Sign Up</string>
+    <string name="text_signup">Don\'t have an account? Sign Up!</string>
+    <string name="text_button_login">SIGN IN</string>
+    <string name="text_button_signup">SIGN UP</string>
     <string name="error_title">Uh oh...</string>
     <string name="error_message_signup">Please fill out all fields!</string>
     <string name="error_message_login">Make sure your information is correct, and all fields are filled in!</string>
@@ -41,5 +41,7 @@
     <string name="action_send">Send</string>
     <string name="success_message">Message sent!</string>
     <string name="title_activity_view_image">Ribbit</string>
+    <string name="content_desc_background">Background Image</string>
+    <string name="subtitle">A Treehouse Project</string>
 
 </resources>
