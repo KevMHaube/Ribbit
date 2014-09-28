@@ -45,11 +45,30 @@
 
     </LinearLayout>
 
-
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/linearLayout"
+        android:id="@+id/buttonDivider"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/button_divider" />
 
     <Button
         android:id="@+id/signupButton"
         android:text="@string/text_button_signup"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/buttonDivider"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginRight="0dp"
+        style="@style/AuthButton" />
+
+    <Button
+        android:id="@+id/cancelButton"
+        android:text="@string/text_button_cancel"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@id/buttonDivider"
+        android:layout_below="@id/linearLayout"
+        android:layout_marginLeft="0dp"
         style="@style/AuthButton" />
 
 </RelativeLayout>

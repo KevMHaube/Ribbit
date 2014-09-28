@@ -42,6 +42,7 @@
     <Button
         android:id="@+id/loginButton"
         android:text="@string/text_button_login"
+        android:layout_below="@id/linearLayout"
         style="@style/AuthButton" />
 
     <TextView

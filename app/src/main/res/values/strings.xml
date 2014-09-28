@@ -43,5 +43,6 @@
     <string name="title_activity_view_image">Ribbit</string>
     <string name="content_desc_background">Background Image</string>
     <string name="subtitle">A Treehouse Project</string>
+    <string name="text_button_cancel">CANCEL</string>
 
 </resources>
