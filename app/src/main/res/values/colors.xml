@@ -7,4 +7,5 @@
     <color name="pressed_purple_button">#BA9DDA</color>
     <color name="focused_purple_button">#D6C3ED</color>
     <color name="text_color">#250054</color>
+    <color name="light_purple_background">#e9e4ed</color>
 </resources>
