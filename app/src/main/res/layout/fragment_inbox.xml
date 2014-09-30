@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity$PlaceholderFragment">
+    tools:context=".MainActivity$PlaceholderFragment" >
 
     <ListView
         android:layout_width="wrap_content"
@@ -10,7 +10,9 @@
         android:id="@android:id/list"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:paddingBottom="@dimen/inbox_vertical_margin"
+        android:clipToPadding="false" />
 
     <TextView
         android:layout_width="wrap_content"

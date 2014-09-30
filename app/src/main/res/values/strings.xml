@@ -44,5 +44,7 @@
     <string name="content_desc_background">Background Image</string>
     <string name="subtitle">A Treehouse Project</string>
     <string name="text_button_cancel">CANCEL</string>
+    <string name="text_test">Test Text</string>
+    <string name="content_desc_message_icon">Message Icon</string>
 
 </resources>
