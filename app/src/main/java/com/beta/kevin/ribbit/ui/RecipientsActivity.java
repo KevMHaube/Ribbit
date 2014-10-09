@@ -1,24 +1,30 @@
-package com.example.kevin.ribbit.ui;
+package com.beta.kevin.ribbit.ui;
 
+import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.ListActivity;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.kevin.ribbit.utils.FileHelper;
-import com.example.kevin.ribbit.utils.ParseConstants;
-import com.example.kevin.ribbit.R;
+import com.beta.kevin.ribbit.adapters.UserAdapter;
+import com.beta.kevin.ribbit.utils.FileHelper;
+import com.beta.kevin.ribbit.utils.ParseConstants;
+import com.beta.kevin.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;
+import com.parse.ParseInstallation;
 import com.parse.ParseObject;
+import com.parse.ParsePush;
 import com.parse.ParseQuery;
 import com.parse.ParseRelation;
 import com.parse.ParseUser;
@@ -28,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class RecipientsActivity extends ListActivity {
+public class RecipientsActivity extends Activity {
 
     protected List<ParseUser> mFriends;
     protected ParseRelation<ParseUser> mFriendsRelation;
@@ -36,14 +42,19 @@ public class RecipientsActivity extends ListActivity {
     protected MenuItem mSendMenuItem;
     protected Uri mMediaUri;
     protected String mFileType;
+    protected GridView mGridView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_INDETERMINATE_PROGRESS);
-        setContentView(R.layout.activity_recipients);
+        setContentView(R.layout.user_grid);
 
-        getListView().setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        mGridView = (GridView) findViewById(R.id.friendsGrid);
+        TextView emptyTextView = (TextView) findViewById(R.id.empty);
+        mGridView.setEmptyView(emptyTextView);
+        mGridView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+        mGridView.setOnItemClickListener(mOnItemClickListener);
 
         mMediaUri = getIntent().getData();
         mFileType = getIntent().getExtras().getString(ParseConstants.KEY_FILE_TYPE);
@@ -80,9 +91,12 @@ public class RecipientsActivity extends ListActivity {
                         usernames[i] = parseUser.getUsername();
                         i++;
                     }
-                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(),
-                            android.R.layout.simple_list_item_checked, usernames);
-                    setListAdapter(adapter);
+                    if (mGridView.getAdapter() == null) {
+                        UserAdapter userAdapter = new UserAdapter(RecipientsActivity.this, mFriends);
+                        mGridView.setAdapter(userAdapter);
+                    } else {
+                        ((UserAdapter) mGridView.getAdapter()).refill(mFriends);
+                    }
                 } else {
                     AlertDialog();
                 }
@@ -115,16 +129,6 @@ public class RecipientsActivity extends ListActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-        if (l.getCheckedItemCount() > 0) {
-            mSendMenuItem.setVisible(true);
-        } else {
-            mSendMenuItem.setVisible(false);
-        }
     }
 
     protected ParseObject createMessage() {
@@ -160,6 +164,7 @@ public class RecipientsActivity extends ListActivity {
             public void done(ParseException e) {
                 if (e == null) {
                     Toast.makeText(RecipientsActivity.this, getString(R.string.success_message), Toast.LENGTH_LONG).show();
+                    sendPushNotifications();
                 } else {
                     AlertDialog();
                 }
@@ -169,8 +174,8 @@ public class RecipientsActivity extends ListActivity {
 
     protected ArrayList<String> getRecipientIds() {
         ArrayList<String> recipientIds = new ArrayList<String>();
-        for (int i = 0; i < getListView().getCount(); i++) {
-            if (getListView().isItemChecked(i)) {
+        for (int i = 0; i < mGridView.getCount(); i++) {
+            if (mGridView.isItemChecked(i)) {
                 recipientIds.add(mFriends.get(i).getObjectId());
             }
         }
@@ -185,6 +190,35 @@ public class RecipientsActivity extends ListActivity {
                 .setPositiveButton(android.R.string.ok, null);
         AlertDialog dialog = builder.create();
         dialog.show();
+    }
+
+    protected AdapterView.OnItemClickListener mOnItemClickListener = new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            if (mGridView.getCheckedItemCount() > 0) {
+                mSendMenuItem.setVisible(true);
+            } else {
+                mSendMenuItem.setVisible(false);
+            }
+
+            ImageView checkImageView = (ImageView) view.findViewById(R.id.checkImageView);
+
+            if (mGridView.isItemChecked(position)) {
+                checkImageView.setVisibility(View.VISIBLE);
+            } else {
+                checkImageView.setVisibility(View.INVISIBLE);
+            }
+        }
+    };
+
+    private void sendPushNotifications() {
+        ParseQuery<ParseInstallation> query = ParseInstallation.getQuery();
+        query.whereContainedIn(ParseConstants.KEY_USER_ID, getRecipientIds());
+
+        ParsePush push = new ParsePush();
+        push.setQuery(query);
+        push.setMessage(getString(R.string.push_message, ParseUser.getCurrentUser().getUsername()));
+        push.sendInBackground();
     }
 
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white" >
+
+    <ImageView
+        android:id="@+id/userImageView"
+        android:src="@drawable/avatar_empty"
+        android:contentDescription="@string/desc_user_avatar"
+        style="@style/GridImage" />
+
+    <ImageView
+        android:visibility="invisible"
+        android:id="@+id/checkImageView"
+        android:src="@drawable/avatar_selected"
+        android:contentDescription="@string/user_check_mark"
+        style="@style/GridImage" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:id="@+id/nameLabel"
+        android:maxLines="2"
+        android:padding="4dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/userImageView"/>
+
+</RelativeLayout>

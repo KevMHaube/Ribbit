@@ -1,13 +1,11 @@
-package com.example.kevin.ribbit.ui;
+package com.beta.kevin.ribbit.ui;
 
 import android.app.Activity;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.example.kevin.ribbit.R;
+import com.beta.kevin.ribbit.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.Timer;

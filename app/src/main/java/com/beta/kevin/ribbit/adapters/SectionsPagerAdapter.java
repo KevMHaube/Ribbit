@@ -1,13 +1,13 @@
-package com.example.kevin.ribbit.adapters;
+package com.beta.kevin.ribbit.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.content.Context;
 
-import com.example.kevin.ribbit.R;
-import com.example.kevin.ribbit.ui.FriendsFragment;
-import com.example.kevin.ribbit.ui.InboxFragment;
+import com.beta.kevin.ribbit.R;
+import com.beta.kevin.ribbit.ui.FriendsFragment;
+import com.beta.kevin.ribbit.ui.InboxFragment;
 
 import java.util.Locale;
 

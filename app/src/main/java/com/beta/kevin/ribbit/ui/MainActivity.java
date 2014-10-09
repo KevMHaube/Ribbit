@@ -1,4 +1,4 @@
-package com.example.kevin.ribbit.ui;
+package com.beta.kevin.ribbit.ui;
 
 import android.app.ActionBar;
 import android.app.AlertDialog;
@@ -16,9 +16,9 @@ import android.view.MenuItem;
 import android.view.Window;
 import android.widget.Toast;
 
-import com.example.kevin.ribbit.utils.ParseConstants;
-import com.example.kevin.ribbit.R;
-import com.example.kevin.ribbit.adapters.SectionsPagerAdapter;
+import com.beta.kevin.ribbit.utils.ParseConstants;
+import com.beta.kevin.ribbit.R;
+import com.beta.kevin.ribbit.adapters.SectionsPagerAdapter;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 

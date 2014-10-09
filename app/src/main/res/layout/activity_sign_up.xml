@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     style="@style/AuthBackground"
-    tools:context="com.example.kevin.ribbit.ui.SignUpActivity">
+    tools:context="com.beta.kevin.ribbit.ui.SignUpActivity">
 
     <ImageView
         android:id="@+id/backgroundImage"

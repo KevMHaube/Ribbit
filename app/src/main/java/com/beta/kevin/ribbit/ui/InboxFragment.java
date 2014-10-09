@@ -1,4 +1,4 @@
-package com.example.kevin.ribbit.ui;
+package com.beta.kevin.ribbit.ui;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -9,11 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.kevin.ribbit.adapters.MessageAdapter;
-import com.example.kevin.ribbit.utils.ParseConstants;
-import com.example.kevin.ribbit.R;
+import com.beta.kevin.ribbit.adapters.MessageAdapter;
+import com.beta.kevin.ribbit.utils.ParseConstants;
+import com.beta.kevin.ribbit.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseFile;

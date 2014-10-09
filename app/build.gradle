@@ -5,7 +5,7 @@ android {
     buildToolsVersion "20.0.0"
 
     defaultConfig {
-        applicationId "com.example.kevin.ribbit"
+        applicationId "com.beta.kevin.ribbit"
         minSdkVersion 15
         targetSdkVersion 20
         versionCode 1
@@ -14,14 +14,14 @@ android {
     buildTypes {
         release {
             runProguard false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 }
 
 dependencies {
     compile 'com.android.support:support-v13:20.0.0'
-    compile files('libs/Parse-1.5.1.jar')
     compile files('libs/commons-io-2.4.jar')
     compile files('libs/picasso-2.3.4.jar')
+    compile files('libs/Parse-1.5.1.jar')
 }

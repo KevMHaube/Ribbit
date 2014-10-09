@@ -46,5 +46,8 @@
     <string name="text_button_cancel">CANCEL</string>
     <string name="text_test">Test Text</string>
     <string name="content_desc_message_icon">Message Icon</string>
+    <string name="desc_user_avatar">User avatar</string>
+    <string name="user_check_mark">User Checkmark</string>
+    <string name="push_message">You have a new message from %s!</string>
 
 </resources>

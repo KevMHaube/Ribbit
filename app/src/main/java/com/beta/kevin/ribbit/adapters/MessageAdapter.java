@@ -1,4 +1,4 @@
-package com.example.kevin.ribbit.adapters;
+package com.beta.kevin.ribbit.adapters;
 
 import android.content.Context;
 import android.text.format.DateUtils;
@@ -9,8 +9,8 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.kevin.ribbit.utils.ParseConstants;
-import com.example.kevin.ribbit.R;
+import com.beta.kevin.ribbit.utils.ParseConstants;
+import com.beta.kevin.ribbit.R;
 import com.parse.ParseObject;
 
 import java.util.Date;
