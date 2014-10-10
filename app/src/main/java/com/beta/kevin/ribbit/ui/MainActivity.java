@@ -151,12 +151,7 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
     ViewPager mViewPager;
 
 
-    private void navigateToLogin() {
-        Intent intent = new Intent(this, LoginActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
-    }
+
 
     private void CameraOptionsAlert() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -309,6 +304,13 @@ public class MainActivity extends FragmentActivity implements ActionBar.TabListe
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void navigateToLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @Override
